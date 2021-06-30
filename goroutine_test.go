@@ -15,3 +15,15 @@ func TestCreateGoroutine(t *testing.T)  {
 	fmt.Println("Ups")
 	time.Sleep(1 * time.Second)
 }
+
+func DisplayNumber(i int)  {
+	fmt.Println(i)
+}
+
+func TestManyGoroutine(t *testing.T)  {
+	for i:=0; i< 10000;i++ {
+		go DisplayNumber(i)
+	}
+
+	time.Sleep(5 * time.Second)
+}
