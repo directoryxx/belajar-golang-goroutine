@@ -27,3 +27,20 @@ func TestManyGoroutine(t *testing.T)  {
 
 	time.Sleep(5 * time.Second)
 }
+
+func TestCreateChannel(t *testing.T)  {
+	// buat channel
+	channel := make(chan string)
+	defer close(channel)
+
+	go func() {
+		time.Sleep(2 * time.Second)
+		channel <- "Angga"
+		fmt.Println("Selesai Mengirim data")
+	}()
+
+	data := <- channel
+	fmt.Println(data)
+
+	time.Sleep(5* time.Second)
+}
