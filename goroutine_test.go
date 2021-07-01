@@ -79,3 +79,22 @@ func TestInOutChannel(t *testing.T)  {
 	time.Sleep(3 * time.Second)
 	close(channel)
 }
+
+func TestBufferedChannel(t *testing.T) {
+	// membuat bufferedchannel
+	// bufferedchannel mengubah jumlah data yang default 1 menjadi n
+	channel := make(chan string,3)
+	defer close(channel)
+
+	channel <- "angga"
+	channel <- "test"
+
+	// mengambil data dari channel
+	fmt.Println(<- channel)
+	fmt.Println(<- channel)
+	//fmt.Println(<- channel)
+
+	fmt.Println("Selesai")
+}
+
+
