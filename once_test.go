@@ -13,7 +13,7 @@ func OnlyOnce()  {
 }
 
 // Menjalankan goroutine sekali
-// Menggunakan once 
+// Menggunakan once
 func TestOnce(t *testing.T) {
 	once := sync.Once{}
 	group := sync.WaitGroup{}
